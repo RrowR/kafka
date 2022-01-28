@@ -12,6 +12,7 @@ public class TestMain {
         LinkedBlockingQueue<String> dbQueue = consumer.dbQueue;
         System.out.println("dbQueue.offer(\"1\") = " + dbQueue.offer("1"));
         System.out.println("dbQueue.offer(\"2\") = " + dbQueue.offer("2"));
+        System.out.println("dbQueue.offer(\"3\") = " + dbQueue.offer("3"));
 
     }
 }
