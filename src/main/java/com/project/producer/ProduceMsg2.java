@@ -34,7 +34,7 @@ public class ProduceMsg2 {
             // System.out.println("第" + i + "条消息，写入成功!!");
 
             // 使用异步回调的方式
-            ProducerRecord<String, String> record = new ProducerRecord<>("kkk", null, i + "");
+            ProducerRecord<String, String> record = new ProducerRecord<>("kkk", null,  "这是我发送的消息");
             /*
                 exception – The exception thrown during processing of this record.
                 metadata - 消息的元数据 (属于哪个topic、属于哪个partition、对应的offset是什么)

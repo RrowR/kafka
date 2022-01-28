@@ -12,7 +12,7 @@ import java.util.Properties;
  * atlan 2022/1/26 18:14
  */
 public class ComsumerMsg {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Properties props = new Properties();
         // Kafka服务器
         props.setProperty("bootstrap.servers", "ecs01:9092");
