@@ -31,4 +31,13 @@ public class TestQueue {
         System.out.println(queue.take());
         System.out.println(queue.take());
     }
+
+    @Test
+    void Test03(){
+        String str = "32,132,1d、321jjjs/a/d{as,wqe,w}q,eq!!!w";
+        // 将字符串里的所有逗号替换成点
+        // copilot牛皮
+        str = str.replace(",", ".");
+        System.out.println(str);
+    }
 }
