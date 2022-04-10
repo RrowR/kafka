@@ -1,12 +1,13 @@
 package com.project.producer;
 
-import org.apache.kafka.clients.producer.*;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
 /**
  * @Author: Rrow
@@ -16,12 +17,12 @@ import java.util.concurrent.Future;
 /**
  * 使用异步回调的方式发送消息
  */
-public class ProduceMsg2 {
+public class ProduceMsg3 {
 
-    private static Logger logger = LoggerFactory.getLogger(ProduceMsg2.class);
+    private static Logger logger = LoggerFactory.getLogger(ProduceMsg3.class);
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        Logger logger = LoggerFactory.getLogger(ProduceMsg2.class);
+        Logger logger = LoggerFactory.getLogger(ProduceMsg3.class);
         Properties props = new Properties();
         props.put("bootstrap.servers", "ecs01:9092");
         props.put("acks", "all");
@@ -29,7 +30,7 @@ public class ProduceMsg2 {
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
         Producer<String, String> producer = new KafkaProducer<>(props);
-        for (int i = 0; i < 500; i++) {
+        for (int i = 0; i < 1000000; i++) {
             // ProducerRecord<String, String> record = new ProducerRecord<>("kkk", null, i + "");
             // Future<RecordMetadata> future = producer.send(record);
             // // 等待响应
@@ -37,7 +38,7 @@ public class ProduceMsg2 {
             // System.out.println("第" + i + "条消息，写入成功!!");
 
             // 使用异步回调的方式
-            ProducerRecord<String, String> record = new ProducerRecord<>("kkk", null,  "kkk这是我发送的消息" + i);
+            ProducerRecord<String, String> record = new ProducerRecord<>("lll", null,  "lll这是我发送的消息" + i);
             /*
                 exception – The exception thrown during processing of this record.
                 metadata - 消息的元数据 (属于哪个topic、属于哪个partition、对应的offset是什么)

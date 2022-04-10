@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration status="DEBUG" monitorInterval="1">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%r %t %d{yyyy-MM-dd HH:mm:ss:SSS} %c %m%n"></PatternLayout>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- 自定义Logger，让自定义的Logger为异步的logger
+            includeLocation="false" 去除日志中的行号信息，行号信息非常影响日志记录的效率(生产中不加这个行号)，严重的时候比同步还低
+            additivity="false"  不继承RootLogger
+         -->
+        <AsyncLogger name="com.project" level="INFO" includeLocation="false" additivity="false">
+            <!-- 将控制台的输出设置为异步打印 -->
+            <AppenderRef ref="Console"/>
+        </AsyncLogger>
+    </Loggers>
+</Configuration>
