@@ -29,7 +29,7 @@ public class ProduceMsg2 {
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
         Producer<String, String> producer = new KafkaProducer<>(props);
-        for (int i = 0; i < 500; i++) {
+        for (int i = 0; i < 5000; i++) {
             // ProducerRecord<String, String> record = new ProducerRecord<>("kkk", null, i + "");
             // Future<RecordMetadata> future = producer.send(record);
             // // 等待响应
