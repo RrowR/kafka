@@ -13,9 +13,9 @@ import java.util.Properties;
 /**
  * atlan 2022/1/26 18:14
  */
-public class ComsumerMsg {
+public class ComsumerMsg3 {
 
-    private static Logger logger = LoggerFactory.getLogger(ComsumerMsg.class);
+    private static Logger logger = LoggerFactory.getLogger(ComsumerMsg3.class);
 
     public static void main(String[] args) throws InterruptedException {
         Properties props = new Properties();
@@ -37,16 +37,12 @@ public class ComsumerMsg {
         consumer.subscribe(Arrays.asList("kkk"));
         // 死循环，主动去拉数据
         while (true) {
-            try {
-                // KafkaConsumer.poll(final Duration timeout)   设置超时时间，拉的是一批数据，实现了Iterable接口
-                ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
-                Thread.sleep(200);
-                for (ConsumerRecord<String, String> record : records){
-                    // 从哪个主题里拉取出来
-                    logger.info("topic = {},value = {},offset = {},partition = {},key = {}", record.topic(), record.value(),record.offset(),record.partition(),record.key());
-                }
-            } catch (Exception e) {
-                logger.info("出现了异常{}", e);
+            // KafkaConsumer.poll(final Duration timeout)   设置超时时间，拉的是一批数据，实现了Iterable接口
+            ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
+            Thread.sleep(200);
+            for (ConsumerRecord<String, String> record : records){
+                // 从哪个主题里拉取出来
+                logger.info("topic = {},value = {},offset = {},partition = {},key = {}", record.topic(), record.value(),record.offset(),record.partition(),record.key());
             }
         }
     }
