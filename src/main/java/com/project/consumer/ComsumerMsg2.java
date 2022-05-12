@@ -34,7 +34,7 @@ public class ComsumerMsg2 {
         props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
         // 指定从哪个topic里消费
-        consumer.subscribe(Arrays.asList("kkk","lll","ppp"));
+        consumer.subscribe(Arrays.asList("kkk","lll"));
         // 死循环，主动去拉数据
         while (true) {
             // KafkaConsumer.poll(final Duration timeout)   设置超时时间，拉的是一批数据，实现了Iterable接口
