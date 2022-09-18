@@ -20,12 +20,12 @@ public class ComsumerMsg {
     public static void main(String[] args) throws InterruptedException {
         Properties props = new Properties();
         // Kafka服务器
-        props.setProperty("bootstrap.servers", "ecs01:9092");
+        props.setProperty("bootstrap.servers", "kaifa:9092");
         /*
             消费者组，如果消费者组名是一样的，那么就可以消费同一份数据，可以起多个
          */
         props.setProperty("group.id", "test");
-        // 自动提交offset(偏移量)
+        // 自动提交offset(偏移量)q
         props.setProperty("enable.auto.commit", "true");
         // 自动提交offset的提交间隔
         props.setProperty("auto.commit.interval.ms", "10");
