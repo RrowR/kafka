@@ -29,7 +29,7 @@ public class ProduceMsg2 {
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
         Producer<String, String> producer = new KafkaProducer<>(props);
-        for (int i = 0; i < 5000; i++) {
+        for (int i = 0; i < 1000; i++) {
             // ProducerRecord<String, String> record = new ProducerRecord<>("kkk", null, i + "");
             // Future<RecordMetadata> future = producer.send(record);
             // // 等待响应
@@ -37,7 +37,7 @@ public class ProduceMsg2 {
             // System.out.println("第" + i + "条消息，写入成功!!");
 
             // 使用异步回调的方式
-            ProducerRecord<String, String> record = new ProducerRecord<>("kkk", null,  "kkk这是我发送的消息" + i);
+            ProducerRecord<String, String> record = new ProducerRecord<>("lll", null,  "kkk这是我发送的消息" + i);
             /*
                 exception – The exception thrown during processing of this record.
                 metadata - 消息的元数据 (属于哪个topic、属于哪个partition、对应的offset是什么)
