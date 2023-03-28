@@ -25,7 +25,7 @@ public class ProduceMsg {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "kaifa:9092");
+        props.put("bootstrap.servers", "ecs01:9092");
         props.put("acks", "all");
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");

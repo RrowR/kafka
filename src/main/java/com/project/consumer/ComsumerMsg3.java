@@ -29,6 +29,7 @@ public class ComsumerMsg3 {
         props.setProperty("enable.auto.commit", "true");
         // 自动提交offset的提交间隔
         props.setProperty("auto.commit.interval.ms", "10");
+        props.setProperty("auto.offset.reset", "earliest");
         // 解析格式
         props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
